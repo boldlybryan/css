@@ -1,6 +1,6 @@
 # CSS Project
 
-A simple static website project with HTML and CSS, configured with Vercel's `serve` package for local development.
+A CSS framework.
 
 ## 🚀 Quick Start
 
