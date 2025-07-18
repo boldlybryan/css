@@ -1,0 +1,166 @@
+:root {
+  --grid-gap: 1rem;
+  --grid-columns: 12;
+  --bp-xs: 320px;
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1400px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--grid-gap);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--grid-gap);
+  margin: var(--grid-gap) 0;
+}
+
+.grid-item {
+  background-color: #f0f0f0;
+  padding: var(--grid-gap);
+}
+
+.span-1 {
+  grid-column: span 1;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.span-3 {
+  grid-column: span 3;
+}
+
+.span-4 {
+  grid-column: span 4;
+}
+
+.span-6 {
+  grid-column: span 6;
+}
+
+.span-12 {
+  grid-column: span 12;
+}   
+
+@media screen and (min-width: 480px) {
+  .sm\:span-1 {
+    grid-column: span 1;
+  }
+
+  .sm\:span-2 {
+    grid-column: span 2;
+  }
+
+  .sm\:span-3 {
+    grid-column: span 3;
+  }
+
+  .sm\:span-4 {
+    grid-column: span 4;
+  }
+
+  .sm\:span-6 {
+    grid-column: span 6;
+  }
+
+  .sm\:span-12 {
+    grid-column: span 12;
+  }
+  
+}
+
+@media (min-width: 768px) {
+  .md\:span-1 {
+    grid-column: span 1;
+  }
+
+  .md\:span-2 {
+    grid-column: span 2;
+  }
+
+  .md\:span-3 {
+    grid-column: span 3;
+  }
+
+  .md\:span-4 {
+    grid-column: span 4;
+  }
+
+  .md\:span-6 {
+    grid-column: span 6;
+  }
+
+  .md\:span-12 {
+    grid-column: span 12;
+  }
+
+  .md\:span-12 {
+    grid-column: span 12;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:span-1 {
+    grid-column: span 1;
+  }
+
+  .lg\:span-2 {
+    grid-column: span 2;
+  }
+
+  .lg\:span-3 {
+    grid-column: span 3;
+  }
+
+  .lg\:span-4 {
+    grid-column: span 4;
+  }
+
+  .lg\:span-6 {
+    grid-column: span 6;
+  }
+
+  .lg\:span-12 {
+    grid-column: span 12;
+  }
+}
+
+@media (min-width: 1400px) {
+  .xl\:span-1 {
+    grid-column: span 1;
+  }
+
+  .xl\:span-2 {
+    grid-column: span 2;
+  }
+
+  .xl\:span-3 {
+    grid-column: span 3;
+  }
+
+  .xl\:span-4 {
+    grid-column: span 4;
+  }
+
+  .xl\:span-6 {
+    grid-column: span 6;
+  }
+
+  .xl\:span-12 {
+    grid-column: span 12;
+  }
+}
