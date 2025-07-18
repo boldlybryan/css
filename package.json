@@ -1,0 +1,27 @@
+{
+  "name": "css",
+  "version": "1.0.0",
+  "description": "A simple CSS project with static HTML",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s . -l 8000",
+    "dev": "serve -s . -l 8000",
+    "serve": "serve -s . -l 8000",
+    "serve:open": "serve -s . -l 8000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boldlybryan/css.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boldlybryan/css/issues"
+  },
+  "homepage": "https://github.com/boldlybryan/css#readme",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
