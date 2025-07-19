@@ -3,64 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS.css</title>
+    <title>CSS Grid System - Complete Feature Demo</title>
     <link rel="stylesheet" href="CSS.css">
+    <style>
+        /* Demo-specific styles */
+        .demo-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+        }
+        .demo-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .demo-description {
+            margin-bottom: 1rem;
+            color: #666;
+            font-style: italic;
+        }
+        .demo-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 0.25rem;
+            font-weight: 500;
+        }
+        .demo-item-alt {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 0.25rem;
+            font-weight: 500;
+        }
+        .demo-item-tall {
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .code-example {
+            background: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #007bff;
+        }
+    </style>
 </head>
-<body>
+<body class="debug-breakpoint">
     <div class="container">
-        <h1>CSS.css</h1>
+        <h1 style="text-align: center; margin: 2rem 0; font-size: 2.5rem; color: #333;">CSS Grid System v1.4</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 3rem;">Complete implementation of all Phase 1-4 features</p>
     </div>
+
+    <!-- Phase 1.1: Gap Control Utilities -->
     <div class="container">
-        <div class="grid">
-            <div class="grid-item span-12 md:span-6 lg:span-3">
-                <p>Grid</p>
+        <div class="demo-section">
+            <h2 class="demo-title">Phase 1.1: Gap Control Utilities</h2>
+            <p class="demo-description">Control spacing between grid items with gap utilities</p>
+            
+            <div class="code-example">gap-xs, gap-sm, gap-md, gap-lg, gap-xl, gap-2xl</div>
+            
+            <div class="grid gap-xs" style="margin-bottom: 1rem;">
+                <div class="demo-item span-4">gap-xs</div>
+                <div class="demo-item span-4">0.25rem</div>
+                <div class="demo-item span-4">spacing</div>
             </div>
-            <div class="grid-item span-12 md:span-6 lg:span-3">
-                <p>Grid</p>
-            </div>
-            <div class="grid-item span-12 md:span-6 lg:span-3">
-                <p>Grid</p>
-            </div>
-            <div class="grid-item span-12 md:span-6 lg:span-3">
-                <p>Grid</p>
-            </div>
-        </div>
-        <div class="grid">
-            <div class="grid-item span-4">
-                <p>Grid</p>
-            </div>
-            <div class="grid-item span-4">
-                <p>Grid</p>
-            </div>
-            <div class="grid-item span-4">
-                <p>Grid</p>
+            
+            <div class="grid gap-lg">
+                <div class="demo-item span-6">gap-lg</div>
+                <div class="demo-item span-6">1.5rem spacing</div>
             </div>
         </div>
-        <div class="grid">
-            <div class="grid-item span-6">
-                <p>Grid</p>
+    </div>
+
+    <!-- Phase 1.2: Auto-Sizing Utilities -->
+    <div class="container">
+        <div class="demo-section">
+            <h2 class="demo-title">Phase 1.2: Auto-Sizing Utilities</h2>
+            <p class="demo-description">Responsive auto-fit and auto-fill layouts</p>
+            
+            <div class="code-example">grid-auto-fit, grid-auto-fill, span-auto</div>
+            
+            <div class="grid-auto-fit gap-md" style="margin-bottom: 1rem;">
+                <div class="demo-item">Auto-fit 1</div>
+                <div class="demo-item">Auto-fit 2</div>
+                <div class="demo-item">Auto-fit 3</div>
+                <div class="demo-item">Responsive</div>
             </div>
-            <div class="grid-item span-6">
-                <p>Grid</p>
+            
+            <div class="grid gap-md">
+                <div class="demo-item span-auto">span-auto</div>
+                <div class="demo-item span-6">span-6</div>
+                <div class="demo-item span-auto">span-auto</div>
             </div>
         </div>
-        <div class="grid">
-            <div class="grid-item span-12">
-                <p>Grid</p>
+    </div>
+
+    <!-- Phase 1.3: Row Spanning Utilities -->
+    <div class="container">
+        <div class="demo-section">
+            <h2 class="demo-title">Phase 1.3: Row Spanning Utilities</h2>
+            <p class="demo-description">Control row spanning and positioning</p>
+            
+            <div class="code-example">row-span-1, row-span-2, row-start-1, row-start-2</div>
+            
+            <div class="grid gap-md">
+                <div class="demo-item span-4 row-span-2 demo-item-tall">row-span-2<br>Tall content</div>
+                <div class="demo-item span-4">row-span-1</div>
+                <div class="demo-item span-4">row-span-1</div>
+                <div class="demo-item span-8">Continues to next row</div>
             </div>
         </div>
-        <div class="grid">
-            <div class="grid-item span-6 start-4">
-                Centered content (starts at column 4, spans 6)
+    </div>
+
+    <!-- Phase 1.4: Order Control Utilities -->
+    <div class="container">
+        <div class="demo-section">
+            <h2 class="demo-title">Phase 1.4: Order Control Utilities</h2>
+            <p class="demo-description">Visual reordering independent of source order</p>
+            
+            <div class="code-example">order-first, order-1, order-2, order-last</div>
+            
+            <div class="grid gap-md">
+                <div class="demo-item span-3 order-last">Source 1st<br>order-last</div>
+                <div class="demo-item span-3 order-first">Source 2nd<br>order-first</div>
+                <div class="demo-item span-3 order-2">Source 3rd<br>order-2</div>
+                <div class="demo-item span-3 order-1">Source 4th<br>order-1</div>
             </div>
-            <div class="grid-item span-12 md:span-8 md:start-3">
-                Full width on mobile, 8 columns starting at column 3 on tablet+
+        </div>
+    </div>
+
+    <!-- Phase 2.1: Grid Item Alignment -->
+    <div class="container">
+        <div class="demo-section">
+            <h2 class="demo-title">Phase 2.1: Grid Item Alignment</h2>
+            <p class="demo-description">Align items within their grid areas</p>
+            
+            <div class="code-example">justify-start, justify-center, justify-end, items-start, items-center, items-end</div>
+            
+            <div class="grid gap-md" style="min-height: 150px;">
+                <div class="demo-item span-4 justify-start items-start">justify-start<br>items-start</div>
+                <div class="demo-item span-4 justify-center items-center">justify-center<br>items-center</div>
+                <div class="demo-item span-4 justify-end items-end">justify-end<br>items-end</div>
             </div>
-            <div class="grid-item span-5 start-1">Left column</div>
-            <div class="grid-item span-5 start-8">Right column (2-column gap in middle)</div>
-            <div class="grid-item span-6 start-7 lg:start-auto">
-                Positioned on tablet, auto-flow on desktop
+        </div>
+    </div>
+
+    <!-- Phase 2.2: Container Responsive Sizing -->
+    <div class="demo-section">
+        <h2 class="demo-title">Phase 2.2: Container Responsive Sizing</h2>
+        <p class="demo-description">Different container sizes for different content</p>
+        
+        <div class="code-example">container-sm, container-md, container-lg, container-xl, container-full</div>
+        
+        <div class="container-sm">
+            <div class="grid gap-md" style="background: rgba(255,0,0,0.1); padding: 1rem;">
+                <div class="demo-item span-12">container-sm (640px max-width)</div>
             </div>
+        </div>
+        
+        <div class="container-lg" style="margin-top: 1rem;">
+            <div class="grid gap-md" style="background: rgba(0,255,0,0.1); padding: 1rem;">
+                <div class="demo-item span-12">container-lg (1024px max-width)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 2.3: Dense Grid Packing -->
+    <div class="container">
+        <div class="demo-section">
+            <h2 class="demo-title">Phase 2.3: Dense Grid Packing</h2>
+            <p class="demo-description">Dense packing fills empty grid spaces automatically</p>
+            
+            <div class="code-example">grid-dense, grid-row-dense, grid-col-dense</div>
+            
+            <div class="grid grid-dense gap-md">
+                <div class="demo-item span-6">Item 1 (span-6)</div>
+                <div class="demo-item span-3">Item 2</div>
+                <div class="demo-item span-2">Item 3</div>
+                <div class="demo-item span-4">Item 4 - Dense packing fills spaces</div>
+                <div class="demo-item span-3">Item 5</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 3.2: Grid Template Areas -->
+    <div class="container">
+        <div class="demo-section">
+            <h2 class="demo-title">Phase 3.2: Grid Template Areas</h2>
+            <p class="demo-description">Semantic layout with named grid areas</p>
+            
+            <div class="code-example">grid-layout-sidebar, area-header, area-sidebar, area-main, area-footer</div>
+            
+            <div class="grid-layout-sidebar gap-md" style="min-height: 300px;">
+                <div class="demo-item area-header">Header Area</div>
+                <div class="demo-item area-sidebar">Sidebar</div>
+                <div class="demo-item area-main">Main Content Area</div>
+                <div class="demo-item area-footer">Footer Area</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 3.3: Full-Width Breakout -->
+    <div class="container">
+        <div class="demo-section">
+            <h2 class="demo-title">Phase 3.3: Full-Width Breakout Utilities</h2>
+            <p class="demo-description">Break out of container constraints</p>
+            
+            <div class="code-example">full-width, breakout-wide</div>
+            
+            <div class="grid gap-md">
+                <div class="demo-item span-12">Regular container content</div>
+                <div class="demo-item-alt full-width">full-width - Breaks out to viewport edges</div>
+                <div class="demo-item span-12">Back to regular container</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 4.2: Runtime Customization -->
+    <div class="container">
+        <div class="demo-section">
+            <h2 class="demo-title">Phase 4.2: Runtime Customization</h2>
+            <p class="demo-description">Use CSS custom properties for dynamic layouts</p>
+            
+            <div class="code-example">grid-custom with --cols and --gap variables</div>
+            
+            <div class="grid-custom gap-md" style="--cols: 5; --gap: 0.5rem;">
+                <div class="demo-item">5-col</div>
+                <div class="demo-item">Grid</div>
+                <div class="demo-item">Custom</div>
+                <div class="demo-item">Layout</div>
+                <div class="demo-item">Demo</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 4.3: Debug Utilities -->
+    <div class="container">
+        <div class="demo-section">
+            <h2 class="demo-title">Phase 4.3: Debug Utilities</h2>
+            <p class="demo-description">Visual debugging tools for development</p>
+            
+            <div class="code-example">debug-grid, debug-grid-items</div>
+            
+            <div class="grid debug-grid debug-grid-items gap-md">
+                <div class="demo-item span-4">Debug mode shows grid columns and item classes</div>
+                <div class="demo-item span-8">Hover to see class names and grid visualization</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Responsive Demonstration -->
+    <div class="container">
+        <div class="demo-section">
+            <h2 class="demo-title">Responsive Features</h2>
+            <p class="demo-description">All utilities support responsive breakpoints (sm:, md:, lg:, xl:)</p>
+            
+            <div class="code-example">span-12 md:span-6 lg:span-4, gap-sm md:gap-lg, order-last md:order-first</div>
+            
+            <div class="grid gap-sm md:gap-lg">
+                <div class="demo-item span-12 md:span-6 lg:span-4 order-3 md:order-1">Responsive 1</div>
+                <div class="demo-item span-12 md:span-6 lg:span-4 order-1 md:order-3">Responsive 2</div>
+                <div class="demo-item span-12 md:span-12 lg:span-4 order-2">Responsive 3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print Layout Demo -->
+    <div class="container">
+        <div class="demo-section">
+            <h2 class="demo-title">Print Layout Support</h2>
+            <p class="demo-description">Special utilities for print layouts (use browser print preview to see)</p>
+            
+            <div class="code-example">print:span-12, print:hidden, print:block</div>
+            
+            <div class="grid gap-md">
+                <div class="demo-item span-6 print:span-12">Expands to full width when printing</div>
+                <div class="demo-item span-6 print:hidden">Hidden when printing</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div style="text-align: center; margin: 3rem 0; padding: 2rem; background: #f8f9fa; border-radius: 0.5rem;">
+            <h2>🎉 Complete CSS Grid System Implementation</h2>
+            <p>All Phase 1-4 features from the workplan have been successfully implemented!</p>
+            <p style="margin-top: 1rem;"><strong>Features include:</strong> Gap control, Auto-sizing, Row utilities, Order control, Alignment, Container sizing, Dense packing, Template areas, Debug tools, and full responsive support.</p>
         </div>
     </div>
 </body>

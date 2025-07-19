@@ -1,0 +1,239 @@
+// CSS Grid System - Sass/SCSS Mixins
+// Phase 4.2: Build Tools Integration
+
+// Configuration variables
+$grid-columns: 12 !default;
+$grid-gap: 1rem !default;
+$breakpoints: (
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1400px
+) !default;
+
+// Grid span mixin
+@mixin grid-span($columns) {
+  grid-column-end: span #{$columns};
+}
+
+// Grid start position mixin
+@mixin grid-start($column) {
+  grid-column-start: #{$column};
+}
+
+// Grid column range mixin
+@mixin grid-column($start, $end) {
+  grid-column: #{$start} / #{$end};
+}
+
+// Row span mixin
+@mixin row-span($rows) {
+  grid-row: span #{$rows};
+}
+
+// Row position mixin
+@mixin row-start($row) {
+  grid-row-start: #{$row};
+}
+
+// Gap mixin
+@mixin gap($size) {
+  gap: #{$size};
+}
+
+// Container mixin
+@mixin container($max-width: 1200px, $padding: $grid-gap) {
+  max-width: #{$max-width};
+  margin: 0 auto;
+  padding: 0 #{$padding};
+}
+
+// Grid container mixin
+@mixin grid($columns: $grid-columns, $gap: $grid-gap) {
+  display: grid;
+  grid-template-columns: repeat(#{$columns}, 1fr);
+  gap: #{$gap};
+}
+
+// Auto-fit grid mixin
+@mixin auto-fit-grid($min-width: 250px, $gap: $grid-gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(#{$min-width}, 1fr));
+  gap: #{$gap};
+}
+
+// Auto-fill grid mixin
+@mixin auto-fill-grid($min-width: 250px, $gap: $grid-gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(#{$min-width}, 1fr));
+  gap: #{$gap};
+}
+
+// Responsive breakpoint mixin
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}";
+  }
+}
+
+// Grid template areas mixin
+@mixin grid-template-areas($areas, $columns: null, $rows: null) {
+  grid-template-areas: #{$areas};
+  
+  @if $columns {
+    grid-template-columns: #{$columns};
+  }
+  
+  @if $rows {
+    grid-template-rows: #{$rows};
+  }
+}
+
+// Grid area mixin
+@mixin grid-area($area) {
+  grid-area: #{$area};
+}
+
+// Alignment mixins
+@mixin justify-self($position) {
+  justify-self: #{$position};
+}
+
+@mixin align-self($position) {
+  align-self: #{$position};
+}
+
+@mixin justify-items($position) {
+  justify-items: #{$position};
+}
+
+@mixin align-items($position) {
+  align-items: #{$position};
+}
+
+// Generate utility classes function
+@mixin generate-grid-utilities($prefix: '') {
+  
+  // Span utilities
+  @for $i from 1 through $grid-columns {
+    .#{$prefix}span-#{$i} {
+      @include grid-span($i);
+    }
+  }
+  
+  // Start position utilities
+  @for $i from 1 through $grid-columns {
+    .#{$prefix}start-#{$i} {
+      @include grid-start($i);
+    }
+  }
+  
+  // Auto utilities
+  .#{$prefix}span-auto {
+    grid-column: auto;
+  }
+  
+  .#{$prefix}start-auto {
+    grid-column-start: auto;
+  }
+  
+  // Row utilities
+  @for $i from 1 through 6 {
+    .#{$prefix}row-span-#{$i} {
+      @include row-span($i);
+    }
+    
+    .#{$prefix}row-start-#{$i} {
+      @include row-start($i);
+    }
+  }
+  
+  // Order utilities
+  @for $i from 1 through 12 {
+    .#{$prefix}order-#{$i} {
+      order: #{$i};
+    }
+  }
+  
+  .#{$prefix}order-first {
+    order: -1;
+  }
+  
+  .#{$prefix}order-last {
+    order: 999;
+  }
+  
+  .#{$prefix}order-none {
+    order: 0;
+  }
+}
+
+// Generate responsive utilities
+@mixin generate-responsive-utilities() {
+  // Base utilities (no prefix)
+  @include generate-grid-utilities();
+  
+  // Responsive utilities
+  @each $breakpoint, $size in $breakpoints {
+    @include breakpoint($breakpoint) {
+      @include generate-grid-utilities('#{$breakpoint}\\:');
+    }
+  }
+}
+
+// Usage Examples:
+/*
+
+// Basic usage
+.my-grid {
+  @include grid(12, 1rem);
+}
+
+.my-item {
+  @include grid-span(6);
+  @include grid-start(3);
+}
+
+// Responsive usage
+.responsive-item {
+  @include grid-span(12);
+  
+  @include breakpoint(md) {
+    @include grid-span(6);
+  }
+  
+  @include breakpoint(lg) {
+    @include grid-span(4);
+  }
+}
+
+// Template areas
+.layout {
+  @include grid-template-areas(
+    '"header header"
+     "sidebar main"
+     "footer footer"',
+    200px 1fr,
+    auto 1fr auto
+  );
+}
+
+.header {
+  @include grid-area(header);
+}
+
+// Auto-fit grid
+.card-grid {
+  @include auto-fit-grid(300px, 2rem);
+}
+
+// Custom container
+.narrow-container {
+  @include container(800px);
+}
+
+*/
