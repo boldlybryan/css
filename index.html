@@ -49,6 +49,19 @@
                 <p>Grid</p>
             </div>
         </div>
+        <div class="grid">
+            <div class="grid-item span-6 start-4">
+                Centered content (starts at column 4, spans 6)
+            </div>
+            <div class="grid-item span-12 md:span-8 md:start-3">
+                Full width on mobile, 8 columns starting at column 3 on tablet+
+            </div>
+            <div class="grid-item span-5 start-1">Left column</div>
+            <div class="grid-item span-5 start-8">Right column (2-column gap in middle)</div>
+            <div class="grid-item span-6 start-7 lg:start-auto">
+                Positioned on tablet, auto-flow on desktop
+            </div>
+        </div>
     </div>
 </body>
 </html>
